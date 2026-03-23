@@ -30,6 +30,7 @@ public class CinemaService {
 		 logger.info("Number of cinemas fetched: {}", cinemas.size());
 
 		System.out.println("hello");
+		System.out.println("fixing");
 
 		return cinemas;
 
