@@ -28,7 +28,11 @@ public class CinemaService {
 				.collect(Collectors.toList());
 		
 		 logger.info("Number of cinemas fetched: {}", cinemas.size());
+
+		System.out.println("hello");
+
 		return cinemas;
+
 	}
 	
 }
