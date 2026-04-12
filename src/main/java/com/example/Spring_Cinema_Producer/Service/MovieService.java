@@ -48,7 +48,6 @@ public class MovieService {
 				savedmovie.getRating(), savedmovie.getShowtimes(), savedmovie.getCinema().getId());
 		//texrt
 		//text 2
-		//test 34
 	}
 
 }
