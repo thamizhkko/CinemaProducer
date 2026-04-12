@@ -47,7 +47,6 @@ public class MovieService {
 		return new MovieDTO(savedmovie.getId(), savedmovie.getTitle(), savedmovie.getGenre(), savedmovie.getDuration(),
 				savedmovie.getRating(), savedmovie.getShowtimes(), savedmovie.getCinema().getId());
 		//texrt
-		//text 2
 	}
 
 }
