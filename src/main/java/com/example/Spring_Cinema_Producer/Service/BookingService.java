@@ -33,9 +33,11 @@ public class BookingService {
     UsersRepository userrepo;
 	
 	public BookingDTO addBooking(BookingDTO bookDTO) {
+		// Feature branch: Enhanced validation and logging for booking
+		System.out.println("Feature Branch: Adding booking with advanced validation");
 		// Master branch: Simplified implementation with logging
 		System.out.println("Master branch: Creating booking");
-		
+
 		Movies movie=movierepo.findById(bookDTO.getMovieId())
 		.orElseThrow(()->new MovieIdNotFoundException("movie id not found"));
 		
@@ -45,6 +47,11 @@ public class BookingService {
 		Users user=userrepo.findById(bookDTO.getUserId())
 		.orElseThrow(()->new UserIdNotFoundException("user id not found"));
 		
+		// Advanced validation on feature branch
+		if (bookDTO.getSeats() <= 0) {
+			throw new IllegalArgumentException("Seats must be greater than 0");
+		}
+
 		Bookings booking=new Bookings();
 		booking.setMovies(movie);
 		booking.setCinema(cinema);
@@ -52,10 +59,12 @@ public class BookingService {
 		booking.setShowtime(bookDTO.getShowtime());
 		booking.setSeats(bookDTO.getSeats());
 		
+		//save booking with feature enhancements
 		//save booking on master
 		Bookings savedBooking=bookingRepo.save(booking);
+		System.out.println("Booking saved successfully on feature branch");
 		System.out.println("Booking persisted to database");
-		
+
 		return new BookingDTO(savedBooking.getId(), savedBooking.getShowtime(), savedBooking.getSeats()
 				, savedBooking.getMovies().getId(), savedBooking.getCinema().getId(), savedBooking.getUser().getId());
 		
