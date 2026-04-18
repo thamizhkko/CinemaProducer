@@ -33,8 +33,9 @@ public class BookingService {
     UsersRepository userrepo;
 	
 	public BookingDTO addBooking(BookingDTO bookDTO) {
+		// Master branch: Simplified implementation with logging
+		System.out.println("Master branch: Creating booking");
 		
-		 
 		Movies movie=movierepo.findById(bookDTO.getMovieId())
 		.orElseThrow(()->new MovieIdNotFoundException("movie id not found"));
 		
@@ -51,8 +52,9 @@ public class BookingService {
 		booking.setShowtime(bookDTO.getShowtime());
 		booking.setSeats(bookDTO.getSeats());
 		
-		//save booking
+		//save booking on master
 		Bookings savedBooking=bookingRepo.save(booking);
+		System.out.println("Booking persisted to database");
 		
 		return new BookingDTO(savedBooking.getId(), savedBooking.getShowtime(), savedBooking.getSeats()
 				, savedBooking.getMovies().getId(), savedBooking.getCinema().getId(), savedBooking.getUser().getId());
