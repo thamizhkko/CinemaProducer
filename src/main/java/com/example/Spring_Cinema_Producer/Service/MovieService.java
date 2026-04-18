@@ -46,6 +46,7 @@ public class MovieService {
 		Movies savedmovie = movierepo.save(movie);
 		return new MovieDTO(savedmovie.getId(), savedmovie.getTitle(), savedmovie.getGenre(), savedmovie.getDuration(),
 				savedmovie.getRating(), savedmovie.getShowtimes(), savedmovie.getCinema().getId());
+		//testing
 	}
 
 }
