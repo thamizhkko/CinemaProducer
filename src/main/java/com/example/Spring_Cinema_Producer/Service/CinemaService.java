@@ -33,6 +33,7 @@ public class CinemaService {
 		System.out.println("fixing");
 		System.out.println("do not commit");
 		System.out.println("dummy commit from develop");
+		System.out.println("2dummy commit from develop");
 
 		return cinemas;
 
